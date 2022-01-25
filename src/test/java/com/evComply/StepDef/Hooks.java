@@ -17,7 +17,7 @@ import java.util.concurrent.TimeUnit;
 
 public class Hooks {
 
-static ScreenRecordUtils screenRecordUtils=new ScreenRecordUtils();
+ScreenRecordUtils screenRecordUtils=new ScreenRecordUtils();
 
 
         @Before
