@@ -17,8 +17,6 @@ public class HomePageStepDefs {
     @Given("User is on the given URL")
     public void user_is_on_the_given_url() {
         Driver.getDriver().get(ConfigurationReader.get("URL"));
-
-
     }
 
     @Then("Verify that user at the URL successfully")
