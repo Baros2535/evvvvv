@@ -1,4 +1,4 @@
-
+@wip
 Feature: Home Page Body Check
 
   Background:
@@ -18,7 +18,7 @@ Feature: Home Page Body Check
 
   Scenario:User should be able to see the mobile app store links on the page
     Then Verify that user sees the mobile app store links on the page
-  @wip
+
   Scenario:User should be able to see following links on the the footer
     Then Verify that user sees following links on the the footer
       |About|
@@ -32,8 +32,8 @@ Feature: Home Page Body Check
 
   Scenario:User should be able to see following options end of the page
     Then Verify that user sees following options end of the page
-      | Privacy policy       |
-      | Terms and conditions |
+      | Privacy Policy       |
+      | Terms & Conditions |
 
 
 

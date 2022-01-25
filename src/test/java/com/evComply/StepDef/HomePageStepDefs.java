@@ -9,6 +9,8 @@ import io.cucumber.java.en.*;
 import org.junit.Assert;
 import org.openqa.selenium.WebElement;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 
@@ -66,7 +68,11 @@ public class HomePageStepDefs {
     }
     @Then("Verify that user sees following options end of the page")
     public void verify_that_user_sees_following_options_end_of_the_page(List<String> expectedTitles) {
+        String privacyText = new HomePage().privacy.getText();
+        String termsText = new HomePage().terms.getText();
+        List<String> actualList=new ArrayList<>(Arrays.asList(privacyText,termsText));
 
+        Assert.assertEquals(expectedTitles,actualList);
 
     }
 
