@@ -17,15 +17,12 @@ import java.util.concurrent.TimeUnit;
 
 public class Hooks {
 
-    @BeforeAll
-    public void beforeAllTests() throws IOException, AWTException {
-        ScreenRecordUtils.startRecording();
-    }
+static ScreenRecordUtils screenRecordUtils=new ScreenRecordUtils();
 
 
         @Before
-        public void setUp() {
-
+        public void setUp() throws IOException, AWTException {
+          screenRecordUtils.startRecording();
             Driver.getDriver().manage().window().maximize();
             Driver.getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
@@ -39,11 +36,8 @@ public class Hooks {
                 scenario.attach(screenshot,"image/png","screenshot");
             }
             Driver.closeDriver();
-
+       screenRecordUtils.stopRecording();
         }
 
-        @AfterAll
-    public void afterAllTests() throws Exception {
-            ScreenRecordUtils.stopRecording();
-        }
+
 }

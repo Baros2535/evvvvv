@@ -19,11 +19,15 @@ public class HomePageStepDefs {
     @Given("User is on the given URL")
     public void user_is_on_the_given_url() {
         Driver.getDriver().get(ConfigurationReader.get("URL"));
+        if (new HomePage().accept.isDisplayed())
+        {
+            new HomePage().accept.click();
+        }
     }
 
     @Then("Verify that user at the URL successfully")
     public void verify_that_user_at_the_url_successfully() {
-        new HomePage().accept.click();
+
         String expectedUrl = "https://www.ev-comply.com/";
         String actualUrl = Driver.getDriver().getCurrentUrl();
         Assert.assertEquals("Verifying Url :",expectedUrl,actualUrl);

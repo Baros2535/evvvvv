@@ -1,9 +1,4 @@
 package com.evComply.Utils;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.support.ui.ExpectedCondition;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.monte.media.math.Rational;
 import org.monte.media.Format;
 import org.monte.screenrecorder.ScreenRecorder;
@@ -13,20 +8,20 @@ import java.awt.*;
 import java.io.IOException;
 
 public class ScreenRecordUtils {
-  static  ScreenRecorder screenRecorder;
+    ScreenRecorder screenRecorder;
 
-    public static void startRecording() throws IOException, AWTException {
+    public  void startRecording() throws IOException, AWTException {
         GraphicsConfiguration gc = GraphicsEnvironment.getLocalGraphicsEnvironment().getDefaultScreenDevice().getDefaultConfiguration();
-        screenRecorder = new ScreenRecorder(gc,
-                new Format(MediaTypeKey, MediaType.FILE, MimeTypeKey, MIME_MP4),
+        this.screenRecorder = new ScreenRecorder(gc,
+                new Format(MediaTypeKey, MediaType.FILE, MimeTypeKey, MIME_AVI),
                 new Format(MediaTypeKey, MediaType.VIDEO, EncodingKey, ENCODING_AVI_TECHSMITH_SCREEN_CAPTURE,
                         CompressorNameKey, ENCODING_AVI_TECHSMITH_SCREEN_CAPTURE,DepthKey, 24, FrameRateKey, Rational.valueOf(15),QualityKey, 1.0f,KeyFrameIntervalKey, 15 * 60),new Format(MediaTypeKey,MediaType.VIDEO, EncodingKey, "black",FrameRateKey, Rational.valueOf(30)),null);
-        screenRecorder.start();
+        this.screenRecorder.start();
     }
 
-    public static void stopRecording() throws Exception
+    public  void stopRecording() throws Exception
     {
-      screenRecorder.stop();
+      this.screenRecorder.stop();
     }
 
 }
